@@ -4,7 +4,7 @@
 #
 Name     : R-NMF
 Version  : 0.21.0
-Release  : 7
+Release  : 8
 URL      : https://cran.r-project.org/src/contrib/NMF_0.21.0.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/NMF_0.21.0.tar.gz
 Summary  : Algorithms and Framework for Nonnegative Matrix Factorization
