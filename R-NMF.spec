@@ -4,36 +4,55 @@
 #
 Name     : R-NMF
 Version  : 0.21.0
-Release  : 15
+Release  : 16
 URL      : https://cran.r-project.org/src/contrib/NMF_0.21.0.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/NMF_0.21.0.tar.gz
 Summary  : Algorithms and Framework for Nonnegative Matrix Factorization
 Group    : Development/Tools
 License  : GPL-2.0+
-Requires: R-NMF-lib
-Requires: R-RColorBrewer
-Requires: R-doParallel
-Requires: R-ggplot2
-Requires: R-gridBase
-Requires: R-pkgmaker
-Requires: R-reshape2
-Requires: R-rngtools
+Requires: R-NMF-lib = %{version}-%{release}
+Requires: R-Rcpp
+Requires: R-bibtex
+Requires: R-colorspace
+Requires: R-foreach
+Requires: R-gtable
+Requires: R-lazyeval
+Requires: R-munsell
+Requires: R-plyr
+Requires: R-registry
+Requires: R-scales
+Requires: R-tibble
+Requires: R-withr
+Requires: R-xtable
 BuildRequires : R-RColorBrewer
+BuildRequires : R-Rcpp
+BuildRequires : R-bibtex
+BuildRequires : R-colorspace
 BuildRequires : R-doParallel
+BuildRequires : R-foreach
 BuildRequires : R-ggplot2
 BuildRequires : R-gridBase
+BuildRequires : R-gtable
+BuildRequires : R-lazyeval
+BuildRequires : R-munsell
 BuildRequires : R-pkgmaker
+BuildRequires : R-plyr
+BuildRequires : R-registry
 BuildRequires : R-reshape2
 BuildRequires : R-rngtools
+BuildRequires : R-scales
+BuildRequires : R-tibble
+BuildRequires : R-withr
+BuildRequires : R-xtable
 BuildRequires : buildreq-R
 BuildRequires : texlive
 
 %description
-Factorization (NMF). The package implements a set of already published algorithms
-    and seeding methods, and provides a framework to test, develop and plug
-    new/custom algorithms. Most of the built-in algorithms have been optimized
-    in C++, and the main interface function provides an easy way of performing
-    parallel computations on multicore machines.
+## Background
+Nonnegative Matrix Factorization (NMF) is an unsupervised learning technique that has been applied successfully in several fields, including signal processing, face recognition and text mining.
+Recent applications of NMF in bioinformatics have demonstrated its ability to extract meaningful information from high-dimensional data such as gene expression microarrays. Developments in NMF theory and applications have resulted in a variety of algorithms and methods.
+However, most NMF implementations have been on commercial platforms, while those that are freely available typically require programming skills.
+This limits their use by the wider research community.
 
 %package lib
 Summary: lib components for the R-NMF package.
@@ -51,11 +70,11 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1535163101
+export SOURCE_DATE_EPOCH=1552880598
 
 %install
+export SOURCE_DATE_EPOCH=1552880598
 rm -rf %{buildroot}
-export SOURCE_DATE_EPOCH=1535163101
 export LANG=C
 export CFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
 export FCFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
@@ -90,8 +109,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export _R_CHECK_FORCE_SUGGESTS_=false
-R CMD check --no-manual --no-examples --no-codoc -l %{buildroot}/usr/lib64/R/library NMF|| : 
-cp ~/.stash/* %{buildroot}/usr/lib64/R/library/*/libs/ || :
+R CMD check --no-manual --no-examples --no-codoc  NMF || :
 
 
 %files
@@ -133,7 +151,6 @@ cp ~/.stash/* %{buildroot}/usr/lib64/R/library/*/libs/ || :
 /usr/lib64/R/library/NMF/help/paths.rds
 /usr/lib64/R/library/NMF/html/00Index.html
 /usr/lib64/R/library/NMF/html/R.css
-/usr/lib64/R/library/NMF/libs/symbols.rds
 /usr/lib64/R/library/NMF/scripts/grid.R
 /usr/lib64/R/library/NMF/scripts/report.Rmd
 
