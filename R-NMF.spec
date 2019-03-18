@@ -4,26 +4,13 @@
 #
 Name     : R-NMF
 Version  : 0.21.0
-Release  : 16
+Release  : 17
 URL      : https://cran.r-project.org/src/contrib/NMF_0.21.0.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/NMF_0.21.0.tar.gz
 Summary  : Algorithms and Framework for Nonnegative Matrix Factorization
 Group    : Development/Tools
 License  : GPL-2.0+
 Requires: R-NMF-lib = %{version}-%{release}
-Requires: R-Rcpp
-Requires: R-bibtex
-Requires: R-colorspace
-Requires: R-foreach
-Requires: R-gtable
-Requires: R-lazyeval
-Requires: R-munsell
-Requires: R-plyr
-Requires: R-registry
-Requires: R-scales
-Requires: R-tibble
-Requires: R-withr
-Requires: R-xtable
 BuildRequires : R-RColorBrewer
 BuildRequires : R-Rcpp
 BuildRequires : R-bibtex
@@ -70,10 +57,10 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1552880598
+export SOURCE_DATE_EPOCH=1552881502
 
 %install
-export SOURCE_DATE_EPOCH=1552880598
+export SOURCE_DATE_EPOCH=1552881502
 rm -rf %{buildroot}
 export LANG=C
 export CFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
