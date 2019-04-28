@@ -4,13 +4,14 @@
 #
 Name     : R-NMF
 Version  : 0.21.0
-Release  : 19
+Release  : 20
 URL      : https://cran.r-project.org/src/contrib/NMF_0.21.0.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/NMF_0.21.0.tar.gz
 Summary  : Algorithms and Framework for Nonnegative Matrix Factorization
 Group    : Development/Tools
 License  : GPL-2.0+
 Requires: R-NMF-lib = %{version}-%{release}
+Requires: R-iterators
 BuildRequires : R-RColorBrewer
 BuildRequires : R-Rcpp
 BuildRequires : R-bibtex
@@ -20,6 +21,7 @@ BuildRequires : R-foreach
 BuildRequires : R-ggplot2
 BuildRequires : R-gridBase
 BuildRequires : R-gtable
+BuildRequires : R-iterators
 BuildRequires : R-lazyeval
 BuildRequires : R-munsell
 BuildRequires : R-pkgmaker
@@ -57,10 +59,10 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1552881502
+export SOURCE_DATE_EPOCH=1556487222
 
 %install
-export SOURCE_DATE_EPOCH=1552881502
+export SOURCE_DATE_EPOCH=1556487222
 rm -rf %{buildroot}
 export LANG=C
 export CFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
@@ -96,7 +98,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export _R_CHECK_FORCE_SUGGESTS_=false
-R CMD check --no-manual --no-examples --no-codoc  NMF || :
+R CMD check --no-manual --no-examples --no-codoc NMF || :
 
 
 %files
