@@ -17,6 +17,7 @@ R-registry
 R-reshape2
 R-rngtools
 R-scales
+R-stringi
 R-tibble
 R-withr
 R-xtable

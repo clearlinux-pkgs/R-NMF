@@ -4,18 +4,31 @@
 #
 Name     : R-NMF
 Version  : 0.21.0
-Release  : 22
+Release  : 23
 URL      : https://cran.r-project.org/src/contrib/NMF_0.21.0.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/NMF_0.21.0.tar.gz
 Summary  : Algorithms and Framework for Nonnegative Matrix Factorization
 Group    : Development/Tools
 License  : GPL-2.0+
 Requires: R-NMF-lib = %{version}-%{release}
-Requires: R-iterators
+Requires: R-RColorBrewer
+Requires: R-colorspace
+Requires: R-digest
+Requires: R-doParallel
+Requires: R-foreach
+Requires: R-ggplot2
+Requires: R-gridBase
+Requires: R-pkgmaker
+Requires: R-registry
+Requires: R-reshape2
+Requires: R-rngtools
+Requires: R-stringi
+Requires: R-stringr
 BuildRequires : R-RColorBrewer
 BuildRequires : R-Rcpp
 BuildRequires : R-bibtex
 BuildRequires : R-colorspace
+BuildRequires : R-digest
 BuildRequires : R-doParallel
 BuildRequires : R-foreach
 BuildRequires : R-ggplot2
@@ -30,6 +43,8 @@ BuildRequires : R-registry
 BuildRequires : R-reshape2
 BuildRequires : R-rngtools
 BuildRequires : R-scales
+BuildRequires : R-stringi
+BuildRequires : R-stringr
 BuildRequires : R-tibble
 BuildRequires : R-withr
 BuildRequires : R-xtable
@@ -58,13 +73,13 @@ lib components for the R-NMF package.
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
-export LANG=C
-export SOURCE_DATE_EPOCH=1556487222
+export LANG=C.UTF-8
+export SOURCE_DATE_EPOCH=1562446341
 
 %install
-export SOURCE_DATE_EPOCH=1556487222
+export SOURCE_DATE_EPOCH=1562446341
 rm -rf %{buildroot}
-export LANG=C
+export LANG=C.UTF-8
 export CFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
 export FCFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
 export FFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
@@ -93,7 +108,7 @@ R CMD INSTALL --preclean --install-tests --built-timestamp=${SOURCE_DATE_EPOCH} 
 cp ~/.stash/* %{buildroot}/usr/lib64/R/library/*/libs/ || :
 %{__rm} -rf %{buildroot}%{_datadir}/R/library/R.css
 %check
-export LANG=C
+export LANG=C.UTF-8
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
