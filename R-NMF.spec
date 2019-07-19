@@ -4,7 +4,7 @@
 #
 Name     : R-NMF
 Version  : 0.21.0
-Release  : 23
+Release  : 24
 URL      : https://cran.r-project.org/src/contrib/NMF_0.21.0.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/NMF_0.21.0.tar.gz
 Summary  : Algorithms and Framework for Nonnegative Matrix Factorization
@@ -22,41 +22,27 @@ Requires: R-pkgmaker
 Requires: R-registry
 Requires: R-reshape2
 Requires: R-rngtools
-Requires: R-stringi
 Requires: R-stringr
 BuildRequires : R-RColorBrewer
-BuildRequires : R-Rcpp
-BuildRequires : R-bibtex
 BuildRequires : R-colorspace
 BuildRequires : R-digest
 BuildRequires : R-doParallel
 BuildRequires : R-foreach
 BuildRequires : R-ggplot2
 BuildRequires : R-gridBase
-BuildRequires : R-gtable
-BuildRequires : R-iterators
-BuildRequires : R-lazyeval
-BuildRequires : R-munsell
 BuildRequires : R-pkgmaker
-BuildRequires : R-plyr
 BuildRequires : R-registry
 BuildRequires : R-reshape2
 BuildRequires : R-rngtools
-BuildRequires : R-scales
-BuildRequires : R-stringi
 BuildRequires : R-stringr
-BuildRequires : R-tibble
-BuildRequires : R-withr
-BuildRequires : R-xtable
 BuildRequires : buildreq-R
-BuildRequires : texlive
 
 %description
-## Background
-Nonnegative Matrix Factorization (NMF) is an unsupervised learning technique that has been applied successfully in several fields, including signal processing, face recognition and text mining.
-Recent applications of NMF in bioinformatics have demonstrated its ability to extract meaningful information from high-dimensional data such as gene expression microarrays. Developments in NMF theory and applications have resulted in a variety of algorithms and methods.
-However, most NMF implementations have been on commercial platforms, while those that are freely available typically require programming skills.
-This limits their use by the wider research community.
+Factorization (NMF). The package implements a set of already published algorithms
+    and seeding methods, and provides a framework to test, develop and plug
+    new/custom algorithms. Most of the built-in algorithms have been optimized
+    in C++, and the main interface function provides an easy way of performing
+    parallel computations on multicore machines.
 
 %package lib
 Summary: lib components for the R-NMF package.
@@ -74,10 +60,10 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1562446341
+export SOURCE_DATE_EPOCH=1563571628
 
 %install
-export SOURCE_DATE_EPOCH=1562446341
+export SOURCE_DATE_EPOCH=1563571628
 rm -rf %{buildroot}
 export LANG=C.UTF-8
 export CFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
